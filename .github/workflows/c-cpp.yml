@@ -13,7 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: compile
+    - name: compile teste
       run: gcc test_fatorial.c -o test_fatorial
-    - name: execute
+    - name: execute teste
       run: ./test_fatorial
+    - name: compile programa principal
+      run: gcc fatorial.c -o fatorial
+    - name: execute programa principal
+      run: ./fatorial 4
+    - name: mostrar o conteúdo do arquivo criado 
+      run: cat fatorial.txt

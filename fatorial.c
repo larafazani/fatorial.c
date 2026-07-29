@@ -1,19 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "function_fatorial.c"
 
-int main() 
+int main(int argc, char *argv[]) 
 {
     int numero;
-    int resultado = 1;
+    int resultado;
+    FILE *arquivo;
 
-    printf("\nDigite um número: ");
-    scanf("%d", &numero);
 
-    for(int contador = numero; contador >= 1; contador--)
-    {
-        resultado = fatorial * contador = numero;
+    if (argc == 2){
+        numero = atoi(argv[1]);
+    } else {
+        printf("\nDigite um número: ");
+        scanf("%d", &numero);
     }
 
+    resultado = fatorial(numero);
+
     printf("O fatorial de %d é %d\n", numero, resultado);
-    printf("Feito por lara fazani")
+    printf("Feito por lara fazani");
+
+    arquivo = fopen("fatorial.txt","w");
+    fprintf(arquivo,"O fatorial de %d é %d\n", numero, resultado);
+    fclose(arquivo);
+
     return 0;
 }
