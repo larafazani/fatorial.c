@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "function_fatorial.c"
 
 int main() 
 {
