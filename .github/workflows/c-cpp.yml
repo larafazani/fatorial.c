@@ -1,19 +1,24 @@
-name: C/C++ CI
+name: CI
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push]
 
 jobs:
-  build:
-
+  build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: compile
-      run: gcc test_fatorial.c -o test_fatorial
-    - name: execute
-      run: ./test_fatorial
+      - uses: actions/checkout@v4
+
+      - name: compilar o programa principal
+        run: gcc fatorial.c -o fatorial
+
+      - name: executar o programa principal
+        run: ./fatorial 6
+
+      - name: mostrar o conteudo do arquivo criado
+        run: cat fatorial.txt
+
+      - name: compilar o arquivo de teste
+        run: gcc test_fatorial.c -o test_fatorial
+
+      - name: executar o arquivo de teste
+        run: ./test_fatorial
